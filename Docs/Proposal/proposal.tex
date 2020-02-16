@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}  
+%\usepackage[margin=1cm]{geometry}
+\usepackage{pgfgantt}
+\usepackage{graphicx}
+\usepackage{xcolor}
+%\usetikzlibrary{positioning}
+
+\ganttset{group/.append style={orange},
+milestone/.append style={red},
+progress label node anchor/.append style={text=red}}    
+
+
+
+% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage[english]{babel}
+\usepackage{placeins}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{inputenc}
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{automata,positioning}     
+\usepackage{listings}
+\usepackage{smartdiagram}
+\usepackage{tocstyle}
+\usetocstyle{standard}
+\lstset
+{ %Formatting for code in appendix
+    language = C,
+    basicstyle=\footnotesize,
+}   
+
+\tikzset{
+    state/.style={
+           rectangle,
+           rounded corners,
+           draw=black, very thick,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\begin{document}
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE George Mason University}\\[1.5cm] % Name of your university/college
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Blind Deconvolution}\\[0.4cm] % Title of your document
+\LARGE{\textbf{Proposal Document}}
+\HRule \\[1.5cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Authors:}\\
+Adrienne \textsc{Stotle} \\
+Aneesh \textsc{Malhotra} \\ 
+Rishi \textsc{Gupta} \\ 
+Shakib \textsc{Rashid} % Your name 
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+Dr. Yariv \textsc{Ephraim} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[2cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[2cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\includegraphics{watermark2.jpg}\\[1cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+\clearpage
+\tableofcontents
+\clearpage
+
+
+Blind Deconvolution Group:
+Aneesh Malhotra, Shakib Rashid, Adrienne Stotle, Rishi Gupta
+\section{Summary of Project Requirements}
+
+\subsection{Mission Requirements}
+
+\begin{itemize}
+\item The device will be code written in Matlab that will undo the convolution of an image $f(x,y)$ with a blurring impulse function $h(x,y)$
+
+\end{itemize}
+
+\subsection{Operational Requirements}
+
+
+\begin{itemize}
+\item The input to the code will be an image, which will be represented as an $m \times n \times 3$ array, which will account for the spatial components as well RGB channels of the image.  
+
+\item The output will be another image that approximates the "true" image before the blurring function, as well as the statistical features of the Bayesian method that was used. 
+
+The goal of our project is to replicate the results found in \cite{R01} in order to reconstruct an image that has been blurred using a known blurring function. The blurred image will be represented as the 2D convolution of the true image, $f(x,y)$, with a blurring function $h(x,y)$.
+\item The original image will be obtained when the blurring function is a Guassian. 
+\item The output will be some code written in Matlab that implements this method, and can be run on a standard laptop. 
+\end{itemize}
+\bibliographystyle{ieeetr}
+\bibliography{proposal_refs}
+
+\end{document}  
